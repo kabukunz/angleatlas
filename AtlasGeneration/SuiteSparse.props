@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <SUITESPARSE>D:\GitHub\suitesparse-metis-for-windows\vs2017</SUITESPARSE>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludePath>$(SUITESPARSE)\install\include;$(SUITESPARSE)\install\include\suitesparse;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)'=='Debug'">$(SUITESPARSE)\lib\Debug;$(SUITESPARSE)\install\lib64\lapack_blas_windows;$(LibraryPath)</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)'=='Release'">$(SUITESPARSE)\lib\Release;$(SUITESPARSE)\install\lib64\lapack_blas_windows;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link Condition="'$(Configuration)'=='Debug'">
+      <AdditionalDependencies>libamdd.lib;libbtfd.lib;libcamdd.lib;libccolamdd.lib;libcholmodd.lib;libcolamdd.lib;libcxsparsed.lib;libklud.lib;libldld.lib;libspqrd.lib;libumfpackd.lib;suitesparseconfigd.lib;libblas.lib;liblapack.lib;metisd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Link Condition="'$(Configuration)'=='Release'">
+      <AdditionalDependencies>libamd.lib;libbtf.lib;libcamd.lib;libccolamd.lib;libcholmod.lib;libcolamd.lib;libcxsparse.lib;libklu.lib;libldl.lib;libspqr.lib;metis.lib;suitesparseconfig.lib;libblas.lib;liblapack.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="SUITESPARSE">
+      <Value>$(SUITESPARSE)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

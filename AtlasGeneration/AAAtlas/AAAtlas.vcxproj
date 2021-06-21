@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
+    <Keyword>Qt4VSv1.0</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseIntelMKL>Parallel</UseIntelMKL>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseIntelMKL>Parallel</UseIntelMKL>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)include\;$(ProjectDir)include\Eigen\;$(ProjectDir)include\rectpack2D\src;$(PARDISO_INCLUDE_DIR);$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)lib\;$(PARDISO_LIB_DIR);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(ProjectDir)include\;$(ProjectDir)include\Eigen\;$(ProjectDir)include\rectpack2D\src;$(PARDISO_INCLUDE_DIR);D:\software\cgalbuild1\include;D:\software\cgal\auxiliary\gmp\include;D:\software\cgal\include;D:\boost\boost_1_60_0;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)lib\;$(PARDISO_LIB_DIR);D:\software\cgalbuild1\lib;D:\software\cgal\auxiliary\gmp\lib;D:\boost\boost_1_60_0\stage\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\SuiteSparse.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\SuiteSparse.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>false</VcpkgEnabled>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_CORE_LIB;QT_GUI_LIB;QT_OPENGL_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;.\GeneratedFiles\$(ConfigurationName);C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\include;C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\include\QtCore;C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\include\QtGui;C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\include\QtWidgets;C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\include\QtANGLE;C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\include\QtOpenGL;C:\Users\kabukunz\Developer\Library\suitesparse-metis-for-windows\build\install\include\suitesparse;C:\Program Files (x86)\Intel\oneAPI\mkl\2021.2.0\include;D:\Qt\5.7\msvc2015_64\include;$(QTDIR)\include\QtWidgets;D:\suitesparse-metis-for-windows-master\build3\install\include;D:\suitesparse-metis-for-windows-master\build3\install\include\suitesparse;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <AdditionalOptions>/D _USE_MATH_DEFINES %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\lib;C:\Users\kabukunz\Developer\Library\suitesparse-metis-for-windows\lapack_windows\x64;C:\Users\kabukunz\Developer\Library\suitesparse-metis-for-windows\build\lib;C:\Users\kabukunz\Developer\Library\AngleAtlas\AtlasGeneration\AAAtlas\lib;D:\suitesparse-metis-for-windows-master\build3\lib\Debug;D:\suitesparse-metis-for-windows-master\build3\install\lib;D:\suitesparse-metis-for-windows-master\build3\install\lib64;D:\suitesparse-metis-for-windows-master\build3\install\lib64\lapack_blas_windows;%(AdditionalLibraryDirectories);C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\lib;C:\Program Files (x86)\Intel\oneAPI\mkl\2021.2.0\lib\intel64</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>OpenMeshCored.lib;OpenMeshToolsd.lib;qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5OpenGLd.lib;opengl32.lib;glu32.lib;mosek64_7_1.lib;mkl_intel_thread.lib;mkl_tbb_thread.lib;mkl_core.lib;triangle.lib;Qt5Widgetsd.lib;libamdd.lib;libblas.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtOpenGL;D:\Qt\5.7\msvc2015_64\include;$(QTDIR)\include\QtWidgets;D:\suitesparse-metis-for-windows-master\build3\install\include;D:\suitesparse-metis-for-windows-master\build3\install\include\suitesparse;%(AdditionalIncludeDirectories)</IncludePath>
+      <Define>UNICODE;WIN32;WIN64;QT_CORE_LIB;QT_GUI_LIB;QT_OPENGL_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_OPENGL_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;.\GeneratedFiles\$(ConfigurationName);C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\include;C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\include\QtCore;C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\include\QtGui;C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\include\QtWidgets;C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\include\QtANGLE;C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\include\QtOpenGL;C:\Users\kabukunz\Developer\Library\suitesparse-metis-for-windows\build\install\include\suitesparse;C:\Program Files (x86)\Intel\oneAPI\mkl\2021.2.0\include;$(QTDIR)\include\QtWidgets;D:\suitesparse-metis-for-windows-master\build3\install\include;D:\suitesparse-metis-for-windows-master\build3\install\include\suitesparse;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <AdditionalOptions>/D _USE_MATH_DEFINES %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\lib;C:\Users\kabukunz\Developer\Library\suitesparse-metis-for-windows\lapack_windows\x64;C:\Users\kabukunz\Developer\Library\suitesparse-metis-for-windows\build\lib;C:\Users\kabukunz\Developer\Library\AngleAtlas\AtlasGeneration\AAAtlas\lib;D:\suitesparse-metis-for-windows-master\build3\lib\Release;D:\suitesparse-metis-for-windows-master\build3\install\lib64;D:\suitesparse-metis-for-windows-master\build3\install\lib;D:\suitesparse-metis-for-windows-master\build3\install\lib64\lapack_blas_windows;D:\software\cgalbuild1\lib;D:\boost\boost_1_60_0\lib64-msvc-14.0;%(AdditionalLibraryDirectories);C:\Users\kabukunz\Developer\Tools\QT\5.15.2\msvc2019_64\lib;C:\Program Files (x86)\Intel\oneAPI\mkl\2021.2.0\lib\intel64</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>OpenMeshCore.lib;OpenMeshTools.lib;qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5OpenGL.lib;opengl32.lib;glu32.lib;mosek64_7_1.lib;mkl_intel_thread.lib;mkl_tbb_thread.lib;mkl_core.lib;triangle.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;D:\suitesparse-metis-for-windows-master\build3\install\include;D:\suitesparse-metis-for-windows-master\build3\install\include\suitesparse;%(AdditionalIncludeDirectories)</IncludePath>
+      <Define>UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_OPENGL_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ChartDeformation.cpp" />
+    <ClCompile Include="ChartDeformation_Deform.cpp" />
+    <ClCompile Include="ChartUntangle.cpp" />
+    <ClCompile Include="Common\CommonDefinitions.cpp" />
+    <ClCompile Include="Common\TimeProfiler.cpp" />
+    <ClCompile Include="Common\VKString.cpp" />
+    <ClCompile Include="Common\VKStringList.cpp" />
+    <ClCompile Include="include\ANN\ANN.cpp" />
+    <ClCompile Include="include\ANN\bd_fix_rad_search.cpp" />
+    <ClCompile Include="include\ANN\bd_pr_search.cpp" />
+    <ClCompile Include="include\ANN\bd_search.cpp" />
+    <ClCompile Include="include\ANN\bd_tree.cpp" />
+    <ClCompile Include="include\ANN\brute.cpp" />
+    <ClCompile Include="include\ANN\kd_dump.cpp" />
+    <ClCompile Include="include\ANN\kd_fix_rad_search.cpp" />
+    <ClCompile Include="include\ANN\kd_pr_search.cpp" />
+    <ClCompile Include="include\ANN\kd_search.cpp" />
+    <ClCompile Include="include\ANN\kd_split.cpp" />
+    <ClCompile Include="include\ANN\kd_tree.cpp" />
+    <ClCompile Include="include\ANN\kd_util.cpp" />
+    <ClCompile Include="include\ANN\perf.cpp" />
+    <ClCompile Include="include\Mosek\ConvexQuadOptimization.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MeshViewer\Auxiliary_Function_Mesh.cpp" />
+    <ClCompile Include="MeshViewer\InteractiveViewerWidget.cpp" />
+    <ClCompile Include="MeshViewer\MainViewerWidget.cpp" />
+    <ClCompile Include="MeshViewer\MeshDefinition.cpp" />
+    <ClCompile Include="MeshViewer\MeshParamDialog.cpp" />
+    <ClCompile Include="MeshViewer\MeshViewerWidget.cpp" />
+    <ClCompile Include="MeshViewer\Mesh_doubleIO.cpp" />
+    <ClCompile Include="MeshViewer\QGLViewerWidget.cpp" />
+    <ClCompile Include="MyAnderson.cpp" />
+    <ClCompile Include="MyParafun.cpp" />
+    <ClCompile Include="MyParaQuadCutting.cpp" />
+    <ClCompile Include="Optimization\HLBFGS\HLBFGS.cpp" />
+    <ClCompile Include="Optimization\HLBFGS\HLBFGS_BLAS.cpp" />
+    <ClCompile Include="Optimization\HLBFGS\ICFS.cpp" />
+    <ClCompile Include="Optimization\HLBFGS\LineSearch.cpp" />
+    <ClCompile Include="Optimization\HLBFGS\Lite_Sparse_Matrix.cpp" />
+    <ClCompile Include="Optimization\Numeric\FastMath.cpp" />
+    <ClCompile Include="ParaQuadChartDecomposition.cpp" />
+    <ClCompile Include="ParaQuadCutting.cpp" />
+    <ClCompile Include="AAAtlas.cpp" />
+    <ClCompile Include="PolySquareDeformation.cpp" />
+    <ClCompile Include="Scaffold\Parafun.cpp" />
+    <ClCompile Include="Scaffold\PardisoSolver.cpp" />
+    <ClCompile Include="Scaffold\ScafCommon.cpp" />
+    <ClCompile Include="Scaffold\ScafData.cpp" />
+    <ClCompile Include="Scaffold\StateManager.cpp" />
+    <ClCompile Include="Scaffold\TriangleInterface.cpp" />
+    <ClCompile Include="Viewer2D.cpp" />
+    <ClCompile Include="Viewer2D_Parameterization.cpp" />
+    <ClCompile Include="Viewer2D_Segments.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="AAAtlas.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="AAAtlas.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MeshViewer\Aux_Transform_Mesh_Dialog.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MeshViewer\InteractiveViewerWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MeshViewer\MainViewerWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ChartDeformation.h" />
+    <ClInclude Include="ChartUntangle.h" />
+    <ClInclude Include="Common\CommonDefinitions.h" />
+    <ClInclude Include="Common\CommonFunctions.h" />
+    <ClInclude Include="Common\TimeProfiler.h" />
+    <ClInclude Include="Common\VKString.h" />
+    <ClInclude Include="Common\VKStringList.h" />
+    <ClInclude Include="include\ANN\ANN.h" />
+    <ClInclude Include="include\ANN\ANNperf.h" />
+    <ClInclude Include="include\ANN\ANNx.h" />
+    <ClInclude Include="include\ANN\bd_tree.h" />
+    <ClInclude Include="include\ANN\kd_fix_rad_search.h" />
+    <ClInclude Include="include\ANN\kd_pr_search.h" />
+    <ClInclude Include="include\ANN\kd_search.h" />
+    <ClInclude Include="include\ANN\kd_split.h" />
+    <ClInclude Include="include\ANN\kd_tree.h" />
+    <ClInclude Include="include\ANN\kd_util.h" />
+    <ClInclude Include="include\ANN\pr_queue.h" />
+    <ClInclude Include="include\ANN\pr_queue_k.h" />
+    <ClInclude Include="include\Mosek\ConvexQuadOptimization.h" />
+    <ClInclude Include="include\Mosek\mosek.h" />
+    <ClInclude Include="MeshViewer\MeshDefinition.h" />
+    <ClInclude Include="MeshViewer\Mesh_doubleIO.h" />
+    <ClInclude Include="MeshViewer\OpenglHeaders.h" />
+    <ClInclude Include="MyAnderson.h" />
+    <ClInclude Include="MyParafun.h" />
+    <ClInclude Include="MyParaQuadCutting.h" />
+    <ClInclude Include="OMPHelper.h" />
+    <ClInclude Include="Optimization\HLBFGS\HLBFGS.h" />
+    <ClInclude Include="Optimization\HLBFGS\HLBFGS_BLAS.h" />
+    <ClInclude Include="Optimization\HLBFGS\HLBFGS_Hessian.h" />
+    <ClInclude Include="Optimization\HLBFGS\ICFS.h" />
+    <ClInclude Include="Optimization\HLBFGS\LineSearch.h" />
+    <ClInclude Include="Optimization\HLBFGS\Lite_Sparse_Entry.h" />
+    <ClInclude Include="Optimization\HLBFGS\Lite_Sparse_Matrix.h" />
+    <ClInclude Include="Optimization\Numeric\FastMath.h" />
+    <ClInclude Include="Optimization\Numeric\fmath.hpp" />
+    <ClInclude Include="ParaQuadChartDecomposition.h" />
+    <ClInclude Include="ParaQuadCutting.h" />
+    <ClInclude Include="PolySquareDeformation.h" />
+    <ClInclude Include="Scaffold\Parafun.h" />
+    <ClInclude Include="Scaffold\PardisoSolver.h" />
+    <ClInclude Include="Scaffold\ScafCommon.h" />
+    <ClInclude Include="Scaffold\ScafData.h" />
+    <ClInclude Include="Scaffold\StateManager.h" />
+    <ClInclude Include="Scaffold\TriangleInterface.h" />
+    <QtMoc Include="Viewer2D_Parameterization.h" />
+    <QtMoc Include="Viewer2D.h" />
+    <QtMoc Include="Viewer2D_Segments.h" />
+    <QtMoc Include="MeshViewer\QGLViewerWidget.h" />
+    <QtMoc Include="MeshViewer\MeshViewerWidget.h" />
+    <QtMoc Include="MeshViewer\MeshParamDialog.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="msvc2015_64" MocOptions="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

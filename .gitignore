@@ -1,0 +1,26 @@
+CMakeCache.txt
+CTestConfig.cmake
+*~
+*.swp
+
+archives
+bin
+build*/*
+build/*
+.vs
+x32
+x64
+# GeneratedFiles
+eigen
+ThirdParty
+Images
+*.zip
+
+doc/doxygen/*/Doxyfile
+doc/doxygen/*/html
+doc/doxygen/*/latex
+doc/doxygen/man
+
+lib
+
+AAAtlas/include

@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="MeshViewer">
+      <UniqueIdentifier>{adca7818-b981-4e97-9a99-867a780c5808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{60bd234b-54b5-44d1-a1e5-89ac9edb2ce1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ANN">
+      <UniqueIdentifier>{0bd3a74d-cc79-40d6-a2f7-afc97ca3910d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{c851d47e-685c-4af6-bfe0-556f566bf7ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PolySquare">
+      <UniqueIdentifier>{c926fc6c-33db-4369-95c4-7bcd24359ebb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Viewer2D">
+      <UniqueIdentifier>{dddc6868-c246-4ba8-b2e6-96567a07d7e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Optimization">
+      <UniqueIdentifier>{e00b70b3-d255-4ca7-8fd5-36b67e26fb8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Optimization\Numeric">
+      <UniqueIdentifier>{58669ecb-e2d8-45e7-97b3-d5c4c9846df6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Optimization\HLBFGS">
+      <UniqueIdentifier>{57ecd73e-63b4-4f30-9f09-d374855aed02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Optimization\Mosek">
+      <UniqueIdentifier>{f13f4174-2c10-42c7-83c2-3ad8df5f5849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Scaffold">
+      <UniqueIdentifier>{02daa524-484c-4242-8eb1-78dfbddea9ae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MeshViewer\Auxiliary_Function_Mesh.cpp">
+      <Filter>MeshViewer</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshViewer\InteractiveViewerWidget.cpp">
+      <Filter>MeshViewer</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshViewer\MeshDefinition.cpp">
+      <Filter>MeshViewer</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshViewer\MeshViewerWidget.cpp">
+      <Filter>MeshViewer</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshViewer\QGLViewerWidget.cpp">
+      <Filter>MeshViewer</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\CommonDefinitions.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\TimeProfiler.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\VKString.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\VKStringList.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\ANN.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\bd_fix_rad_search.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\bd_pr_search.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\bd_search.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\bd_tree.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\brute.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\kd_dump.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\kd_fix_rad_search.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\kd_pr_search.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\kd_search.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\kd_split.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\kd_tree.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\kd_util.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ANN\perf.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="AAAtlas.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshViewer\MeshParamDialog.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshViewer\MainViewerWidget.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshViewer\Mesh_doubleIO.cpp">
+      <Filter>MeshViewer</Filter>
+    </ClCompile>
+    <ClCompile Include="ParaQuadCutting.cpp">
+      <Filter>PolySquare</Filter>
+    </ClCompile>
+    <ClCompile Include="ParaQuadChartDecomposition.cpp">
+      <Filter>PolySquare</Filter>
+    </ClCompile>
+    <ClCompile Include="Viewer2D.cpp">
+      <Filter>Viewer2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Viewer2D_Parameterization.cpp">
+      <Filter>Viewer2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Viewer2D_Segments.cpp">
+      <Filter>Viewer2D</Filter>
+    </ClCompile>
+    <ClCompile Include="PolySquareDeformation.cpp">
+      <Filter>PolySquare</Filter>
+    </ClCompile>
+    <ClCompile Include="Optimization\Numeric\FastMath.cpp">
+      <Filter>Optimization\Numeric</Filter>
+    </ClCompile>
+    <ClCompile Include="Optimization\HLBFGS\HLBFGS.cpp">
+      <Filter>Optimization\HLBFGS</Filter>
+    </ClCompile>
+    <ClCompile Include="Optimization\HLBFGS\HLBFGS_BLAS.cpp">
+      <Filter>Optimization\HLBFGS</Filter>
+    </ClCompile>
+    <ClCompile Include="Optimization\HLBFGS\ICFS.cpp">
+      <Filter>Optimization\HLBFGS</Filter>
+    </ClCompile>
+    <ClCompile Include="Optimization\HLBFGS\LineSearch.cpp">
+      <Filter>Optimization\HLBFGS</Filter>
+    </ClCompile>
+    <ClCompile Include="Optimization\HLBFGS\Lite_Sparse_Matrix.cpp">
+      <Filter>Optimization\HLBFGS</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartDeformation.cpp">
+      <Filter>PolySquare</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartUntangle.cpp">
+      <Filter>PolySquare</Filter>
+    </ClCompile>
+    <ClCompile Include="include\Mosek\ConvexQuadOptimization.cpp">
+      <Filter>Optimization\Mosek</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartDeformation_Deform.cpp">
+      <Filter>PolySquare</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaffold\Parafun.cpp">
+      <Filter>Scaffold</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaffold\PardisoSolver.cpp">
+      <Filter>Scaffold</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaffold\ScafCommon.cpp">
+      <Filter>Scaffold</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaffold\ScafData.cpp">
+      <Filter>Scaffold</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaffold\StateManager.cpp">
+      <Filter>Scaffold</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaffold\TriangleInterface.cpp">
+      <Filter>Scaffold</Filter>
+    </ClCompile>
+    <ClCompile Include="MyParaQuadCutting.cpp">
+      <Filter>PolySquare</Filter>
+    </ClCompile>
+    <ClCompile Include="MyAnderson.cpp">
+      <Filter>PolySquare</Filter>
+    </ClCompile>
+    <ClCompile Include="MyParafun.cpp">
+      <Filter>PolySquare</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MeshViewer\InteractiveViewerWidget.h">
+      <Filter>MeshViewer</Filter>
+    </QtMoc>
+    <QtMoc Include="MeshViewer\MeshViewerWidget.h">
+      <Filter>MeshViewer</Filter>
+    </QtMoc>
+    <QtMoc Include="MeshViewer\QGLViewerWidget.h">
+      <Filter>MeshViewer</Filter>
+    </QtMoc>
+    <QtMoc Include="AAAtlas.h">
+      <Filter>GUI</Filter>
+    </QtMoc>
+    <QtMoc Include="MeshViewer\Aux_Transform_Mesh_Dialog.h">
+      <Filter>GUI</Filter>
+    </QtMoc>
+    <QtMoc Include="MeshViewer\MeshParamDialog.h">
+      <Filter>GUI</Filter>
+    </QtMoc>
+    <QtMoc Include="MeshViewer\MainViewerWidget.h">
+      <Filter>GUI</Filter>
+    </QtMoc>
+    <QtMoc Include="Viewer2D.h">
+      <Filter>Viewer2D</Filter>
+    </QtMoc>
+    <QtMoc Include="Viewer2D_Segments.h">
+      <Filter>Viewer2D</Filter>
+    </QtMoc>
+    <QtMoc Include="Viewer2D_Parameterization.h">
+      <Filter>Viewer2D</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="AAAtlas.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MeshViewer\MeshDefinition.h">
+      <Filter>MeshViewer</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshViewer\OpenglHeaders.h">
+      <Filter>MeshViewer</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\CommonDefinitions.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\TimeProfiler.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\VKString.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\VKStringList.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ANN\ANN.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ANN\ANNperf.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ANN\ANNx.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ANN\bd_tree.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ANN\kd_fix_rad_search.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ANN\kd_pr_search.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ANN\kd_search.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ANN\kd_split.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ANN\kd_tree.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ANN\kd_util.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ANN\pr_queue.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ANN\pr_queue_k.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshViewer\Mesh_doubleIO.h">
+      <Filter>MeshViewer</Filter>
+    </ClInclude>
+    <ClInclude Include="ParaQuadCutting.h">
+      <Filter>PolySquare</Filter>
+    </ClInclude>
+    <ClInclude Include="ParaQuadChartDecomposition.h">
+      <Filter>PolySquare</Filter>
+    </ClInclude>
+    <ClInclude Include="PolySquareDeformation.h">
+      <Filter>PolySquare</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimization\Numeric\FastMath.h">
+      <Filter>Optimization\Numeric</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\CommonFunctions.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimization\HLBFGS\Lite_Sparse_Matrix.h">
+      <Filter>Optimization\HLBFGS</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimization\HLBFGS\HLBFGS.h">
+      <Filter>Optimization\HLBFGS</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimization\HLBFGS\HLBFGS_BLAS.h">
+      <Filter>Optimization\HLBFGS</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimization\HLBFGS\HLBFGS_Hessian.h">
+      <Filter>Optimization\HLBFGS</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimization\HLBFGS\ICFS.h">
+      <Filter>Optimization\HLBFGS</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimization\HLBFGS\LineSearch.h">
+      <Filter>Optimization\HLBFGS</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimization\HLBFGS\Lite_Sparse_Entry.h">
+      <Filter>Optimization\HLBFGS</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimization\Numeric\fmath.hpp">
+      <Filter>Optimization\Numeric</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartDeformation.h">
+      <Filter>PolySquare</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartUntangle.h">
+      <Filter>PolySquare</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mosek\ConvexQuadOptimization.h">
+      <Filter>Optimization\Mosek</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mosek\mosek.h">
+      <Filter>Optimization\Mosek</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaffold\Parafun.h">
+      <Filter>Scaffold</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaffold\PardisoSolver.h">
+      <Filter>Scaffold</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaffold\ScafCommon.h">
+      <Filter>Scaffold</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaffold\ScafData.h">
+      <Filter>Scaffold</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaffold\StateManager.h">
+      <Filter>Scaffold</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaffold\TriangleInterface.h">
+      <Filter>Scaffold</Filter>
+    </ClInclude>
+    <ClInclude Include="MyParaQuadCutting.h">
+      <Filter>PolySquare</Filter>
+    </ClInclude>
+    <ClInclude Include="MyAnderson.h">
+      <Filter>PolySquare</Filter>
+    </ClInclude>
+    <ClInclude Include="MyParafun.h">
+      <Filter>PolySquare</Filter>
+    </ClInclude>
+    <ClInclude Include="OMPHelper.h">
+      <Filter>PolySquare</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

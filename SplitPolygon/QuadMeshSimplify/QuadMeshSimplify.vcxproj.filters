@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="BaseDataStructure">
+      <UniqueIdentifier>{6838ffb5-d773-412c-bae3-22666d272ff8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AssistFunc">
+      <UniqueIdentifier>{b361c183-2d19-4528-acc1-e597a03088a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataOperation">
+      <UniqueIdentifier>{04899d51-1176-4189-b964-72dabf19a160}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ANN">
+      <UniqueIdentifier>{3f40f3b0-5830-4866-9c85-a999173fbbd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SeemsUseless">
+      <UniqueIdentifier>{9625456e-340a-446a-86d3-05d8d01ac59b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Poly">
+      <UniqueIdentifier>{a38a3cff-153c-447c-8763-201e57f70789}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="QuadMesh.cpp">
+      <Filter>BaseDataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="QuadMeshIO.cpp">
+      <Filter>BaseDataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="AssistFunc.cpp">
+      <Filter>AssistFunc</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseComplex.cpp">
+      <Filter>BaseDataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="Pipeline.cpp">
+      <Filter>DataOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="AESolver.cpp">
+      <Filter>DataOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>DataOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="MetroDis.cpp">
+      <Filter>DataOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="AESolverSquare.cpp">
+      <Filter>DataOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="CrossfieldDesign.cpp">
+      <Filter>DataOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshDefinition.cpp">
+      <Filter>DataOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\bd_fix_rad_search.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\bd_pr_search.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\bd_search.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\bd_tree.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\brute.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\kd_dump.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\kd_fix_rad_search.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\kd_pr_search.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\kd_search.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\kd_split.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\kd_tree.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\kd_util.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\perf.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\include\ANN\ANN.cpp">
+      <Filter>ANN</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtraFieldEnergy.cpp">
+      <Filter>DataOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtraFieldEnergyAlone.cpp">
+      <Filter>DataOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="PolySplit.cpp">
+      <Filter>Poly</Filter>
+    </ClCompile>
+    <ClCompile Include="GeoPolyReadWrite.cpp">
+      <Filter>Poly</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckPolyProperty.cpp">
+      <Filter>Poly</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtraFunc.cpp">
+      <Filter>Poly</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGlobalFunction.cpp">
+      <Filter>AssistFunc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="QuadMesh.h">
+      <Filter>BaseDataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadMeshIO.h">
+      <Filter>BaseDataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="AssistFunc.h">
+      <Filter>AssistFunc</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseComplex.h">
+      <Filter>BaseDataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="Pipeline.h">
+      <Filter>DataOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="AESolver.h">
+      <Filter>DataOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="CGAL_AABBTree.h">
+      <Filter>BaseDataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="MetroDis.h">
+      <Filter>DataOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="AESolverSquare.h">
+      <Filter>DataOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="CrossfieldDesign.h">
+      <Filter>DataOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshDefinition.h">
+      <Filter>DataOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\include\ANN\ANNx.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\include\ANN\bd_tree.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\include\ANN\kd_fix_rad_search.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\include\ANN\kd_pr_search.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\include\ANN\kd_search.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\include\ANN\kd_split.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\include\ANN\kd_tree.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\include\ANN\kd_util.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\include\ANN\pr_queue.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\include\ANN\pr_queue_k.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\include\ANN\ANN.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\include\ANN\ANNperf.h">
+      <Filter>ANN</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtraFieldEnergy.h">
+      <Filter>DataOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtraFieldEnergyAlone.h">
+      <Filter>DataOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="PolySplit.h">
+      <Filter>Poly</Filter>
+    </ClInclude>
+    <ClInclude Include="GeoPolyReadWrite.h">
+      <Filter>Poly</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckPolyProperty.h">
+      <Filter>Poly</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtraFunc.h">
+      <Filter>Poly</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGlobalFunction.h">
+      <Filter>AssistFunc</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
