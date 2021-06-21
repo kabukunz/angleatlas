@@ -9,6 +9,9 @@
 
 NMainViewerWidget::NMainViewerWidget()
 {
+    // FIXME: create class and load mesh
+    MeshViewer = new NInteractiveViewerWidget(); 
+
 	// initViewerWindow();
 	// LoadMeshSuccess = false;
 

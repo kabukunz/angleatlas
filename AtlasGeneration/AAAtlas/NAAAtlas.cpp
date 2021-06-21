@@ -7,7 +7,7 @@
 
 NAAAtlas::NAAAtlas()
 {
-	viewer = new NMainViewerWidget(this);
+	viewer = new NMainViewerWidget();
 	// setCentralWidget(viewer);
 	// initWindow();
 	// createActions();

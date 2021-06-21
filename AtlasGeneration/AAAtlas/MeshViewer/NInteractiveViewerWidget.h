@@ -1,7 +1,7 @@
 #ifndef INTERACTIVE_VIEWER_WIDGET
 #define INTERACTIVE_VIEWER_WIDGET
 
-#include "NMeshViewerWidget.h"
+#include "NMeshViewerWidget.h" // HERE
 #include "ANN\ANN.h" // HERE
 
 #include "ParaQuadCutting.h" // HERE
@@ -12,7 +12,7 @@
 #include <string>
 #include <fstream>
 
-class NInteractiveViewerWidget : public NMeshViewerWidget
+class NInteractiveViewerWidget
 {
 	// Q_OBJECT
 public:

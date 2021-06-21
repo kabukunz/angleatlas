@@ -16,10 +16,9 @@
 #include "Scaffold/StateManager.h" // HERE
 
 NInteractiveViewerWidget::NInteractiveViewerWidget()
-	:NMeshViewerWidget(parent)
 {
 	draw_new_mesh = false;
-	clearSelectedData();
+	// clearSelectedData();
 	kdTree = NULL;
 
 	kernel_width = 4.0;
@@ -41,17 +40,17 @@ NInteractiveViewerWidget::NInteractiveViewerWidget()
 // 	split_thres = 0.02;
 // }
 
-// InteractiveViewerWidget::~InteractiveViewerWidget()
-// {
-// 	if(kdTree) delete kdTree;
-// }
+NInteractiveViewerWidget::~NInteractiveViewerWidget()
+{
+	if(kdTree) delete kdTree;
+}
 
-// void InteractiveViewerWidget::initMesh()
-// {
-// 	MeshViewerWidget::initMesh();
+void NInteractiveViewerWidget::initMesh()
+{
+	NMeshViewerWidget::initMesh();
 
-// 	selectedVertex = new_boundary_vertices;
-// }
+	// selectedVertex = new_boundary_vertices;
+}
 
 // void InteractiveViewerWidget::setMouseMode(int mm)
 // {
