@@ -22,3 +22,5 @@ doc/doxygen/*/latex
 doc/doxygen/man
 
 lib
+
+rectpack2D/
