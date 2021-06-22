@@ -7,7 +7,7 @@
 #include <OpenMesh/Core/Utils/vector_cast.hh>
 #include <OpenMesh/Core/IO/MeshIO.hh>
 
-#include "MeshViewerWidget.h"
+#include "NMeshViewerWidget.h"
 #include "Common/CommonDefinitions.h"
 
 // #include <QTextStream>
@@ -18,12 +18,12 @@
 
 // using namespace Qt;
 
-MeshViewerWidget::MeshViewerWidget()
+NMeshViewerWidget::NMeshViewerWidget()
 {
 	init();
 }
 
-void MeshViewerWidget::init()
+void NMeshViewerWidget::init()
 {
 	mesh.request_vertex_status();
 	mesh.request_edge_status();
@@ -46,123 +46,125 @@ void MeshViewerWidget::init()
 // 	init();
 // }
 
-MeshViewerWidget::~MeshViewerWidget()
+NMeshViewerWidget::~NMeshViewerWidget()
 {
 }
 
-// void MeshViewerWidget::updateMeshCenter()
-// {
-// 	typedef Mesh::Point Point;
-// 	Mesh::VertexIter vIt = mesh.vertices_begin();
-// 	Mesh::VertexIter vEnd = mesh.vertices_end();
-// 	bbMin = bbMax = OpenMesh::vector_cast<OpenMesh::Vec3d>(mesh.point(vIt));
+ void NMeshViewerWidget::updateMeshCenter()
+ {
+ 	typedef Mesh::Point Point;
+ 	Mesh::VertexIter vIt = mesh.vertices_begin();
+ 	Mesh::VertexIter vEnd = mesh.vertices_end();
+ 	bbMin = bbMax = OpenMesh::vector_cast<OpenMesh::Vec3d>(mesh.point(vIt));
 
-// 	size_t count = 0;
-// 	for(; vIt != vEnd; ++vIt, ++count)
-// 	{
-// 		bbMin.minimize( OpenMesh::vector_cast<OpenMesh::Vec3d>( mesh.point(vIt) ) );
-// 		bbMax.maximize( OpenMesh::vector_cast<OpenMesh::Vec3d>( mesh.point(vIt) ) );
-// 	}
+ 	size_t count = 0;
+ 	for(; vIt != vEnd; ++vIt, ++count)
+ 	{
+ 		bbMin.minimize( OpenMesh::vector_cast<OpenMesh::Vec3d>( mesh.point(vIt) ) );
+ 		bbMax.maximize( OpenMesh::vector_cast<OpenMesh::Vec3d>( mesh.point(vIt) ) );
+ 	}
 
-// 	// set center and radius and box's radius.
-// 	/*OpenMesh::Vec3d c = (bbMin + bbMax)*0.5;
-// 	for (vIt = mesh.vertices_begin(); vIt != vEnd; ++vIt, ++count)
-// 	{
-// 		OpenMesh::Vec3d p = mesh.point(vIt) - c;
-// 		mesh.set_point(vIt, p);
-// 	}*/
+ 	// set center and radius and box's radius.
+ 	/*OpenMesh::Vec3d c = (bbMin + bbMax)*0.5;
+ 	for (vIt = mesh.vertices_begin(); vIt != vEnd; ++vIt, ++count)
+ 	{
+ 		OpenMesh::Vec3d p = mesh.point(vIt) - c;
+ 		mesh.set_point(vIt, p);
+ 	}*/
 
-// 	if( first_init )
-// 	{
-// 		set_scene_pos( (bbMin+bbMax)*0.5, (bbMin-bbMax).norm()*0.5 );
-// 		first_init = false;
-// 	}
-// 	else
-// 	{
-// 		set_scene_pos((bbMin + bbMax)*0.5, (bbMin - bbMax).norm()*0.5);
-// 	}
+ 	if( first_init )
+ 	{
+ 		/*set_scene_pos( (bbMin+bbMax)*0.5, (bbMin-bbMax).norm()*0.5 );*/
+ 		first_init = false;
+ 	}
+ 	else
+ 	{
+ 		/*set_scene_pos((bbMin + bbMax)*0.5, (bbMin - bbMax).norm()*0.5);*/
+ 	}
 
-// 	int n_boundary = 0;
-// 	for (auto v_h : mesh.vertices())
-// 	{
-// 		if (!mesh.is_boundary(v_h)) continue;
+ 	int n_boundary = 0;
+ 	for (auto v_h : mesh.vertices())
+ 	{
+ 		if (!mesh.is_boundary(v_h)) continue;
 
-// 		n_boundary++;
-// 	}
+ 		n_boundary++;
+ 	}
 
-// // 	std::ofstream boundary_log("boundary_vertices.txt");
-// // 	boundary_log << std::setprecision(12);
-// // 	OpenMesh::HalfedgeHandle h_iter;
-// // 	for (auto v_h : mesh.vertices())
-// // 	{
-// // 		boundary_log << v_h.idx() << " " << mesh.point(v_h) << std::endl;
-// // 	}
-// // 	boundary_log.close();
+ // 	std::ofstream boundary_log("boundary_vertices.txt");
+ // 	boundary_log << std::setprecision(12);
+ // 	OpenMesh::HalfedgeHandle h_iter;
+ // 	for (auto v_h : mesh.vertices())
+ // 	{
+ // 		boundary_log << v_h.idx() << " " << mesh.point(v_h) << std::endl;
+ // 	}
+ // 	boundary_log.close();
 
-// // 	std::ofstream boundary_log("boundary_vertices.txt");
-// // 	boundary_log << std::setprecision(12);
-// // 	OpenMesh::HalfedgeHandle h_iter;
-// // 	for (auto voh : mesh.voh_range(mesh.vertex_handle(0)))
-// // 	{
-// // 		if (!mesh.is_boundary(voh)) continue;
-// // 
-// // 		h_iter = voh;
-// // 		break;
-// // 	}
-// //
-// // 	do
-// // 	{
-// // 		auto v_h = mesh.from_vertex_handle(h_iter);
-// // 		boundary_log << v_h.idx() << " " << mesh.point(v_h) << std::endl;
-// // 		h_iter = mesh.next_halfedge_handle(h_iter);
-// // 	} while (mesh.from_vertex_handle(h_iter).idx() != 0);
-// // 	boundary_log.close();
+ // 	std::ofstream boundary_log("boundary_vertices.txt");
+ // 	boundary_log << std::setprecision(12);
+ // 	OpenMesh::HalfedgeHandle h_iter;
+ // 	for (auto voh : mesh.voh_range(mesh.vertex_handle(0)))
+ // 	{
+ // 		if (!mesh.is_boundary(voh)) continue;
+ // 
+ // 		h_iter = voh;
+ // 		break;
+ // 	}
+ //
+ // 	do
+ // 	{
+ // 		auto v_h = mesh.from_vertex_handle(h_iter);
+ // 		boundary_log << v_h.idx() << " " << mesh.point(v_h) << std::endl;
+ // 		h_iter = mesh.next_halfedge_handle(h_iter);
+ // 	} while (mesh.from_vertex_handle(h_iter).idx() != 0);
+ // 	boundary_log.close();
 
-// // 	printf("BoundingBox:\nX : [ %f , %f ]\n", bbMin[0], bbMax[0]);
-// // 	printf("Y : [ %f , %f ]\n", bbMin[1], bbMax[1]);
-// // 	printf("Z : [ %f , %f ]\n", bbMin[2], bbMax[2]);
-// // 	printf("Diag length of BBox : %f\n", (bbMax - bbMin).norm());
-// // 	printf("Boundary Size : %d\n\n", n_boundary);
+ // 	printf("BoundingBox:\nX : [ %f , %f ]\n", bbMin[0], bbMax[0]);
+ // 	printf("Y : [ %f , %f ]\n", bbMin[1], bbMax[1]);
+ // 	printf("Z : [ %f , %f ]\n", bbMin[2], bbMax[2]);
+ // 	printf("Diag length of BBox : %f\n", (bbMax - bbMin).norm());
+ // 	printf("Boundary Size : %d\n\n", n_boundary);
 
-// 	double avgLen = 0.0;
-// 	double maxLen = 0.0;
-// 	double minLen = std::numeric_limits<double>::max();
-// 	for (auto e_h : mesh.edges())
-// 	{
-// 		double e_len = mesh.calc_edge_length(e_h);
-// 		avgLen += e_len;
-// 		maxLen = std::max(e_len, maxLen);
-// 		minLen = std::min(e_len, minLen);
-// 	}
-// 	avgLen /= mesh.n_edges();
+ 	double avgLen = 0.0;
+ 	double maxLen = 0.0;
+ 	double minLen = std::numeric_limits<double>::max();
+ 	for (auto e_h : mesh.edges())
+ 	{
+ 		double e_len = mesh.calc_edge_length(e_h);
+ 		avgLen += e_len;
+ 		maxLen = std::max(e_len, maxLen);
+ 		minLen = std::min(e_len, minLen);
+ 	}
+ 	avgLen /= mesh.n_edges();
 
-// 	mesh_avg_length = avgLen;
-// 	edge_offset = 0.01 * avgLen;
+ 	mesh_avg_length = avgLen;
+ 	edge_offset = 0.01 * avgLen;
 
-// 	double avgArea = 0.0;
-// 	double maxArea = 0.0;
-// 	double minArea = std::numeric_limits<double>::max();
-// 	for (auto f_h : mesh.faces())
-// 	{
-// 		double f_area = mesh.calc_sector_area(mesh.fh_begin(f_h));
-// 		avgArea += f_area;
-// 		maxArea = std::max(f_area, maxArea);
-// 		minArea = std::min(f_area, minArea);
-// 	}
-// 	avgArea /= mesh.n_faces();
+ 	double avgArea = 0.0;
+ 	double maxArea = 0.0;
+ 	double minArea = std::numeric_limits<double>::max();
+ 	for (auto f_h : mesh.faces())
+ 	{
+ 		double f_area = mesh.calc_sector_area(mesh.fh_begin(f_h));
+ 		avgArea += f_area;
+ 		maxArea = std::max(f_area, maxArea);
+ 		minArea = std::min(f_area, minArea);
+ 	}
+ 	avgArea /= mesh.n_faces();
 
-// 	emit(updateMeshSignal());
-// 	emit(updateEdgeSignal(minLen, maxLen, avgLen));
-// 	emit(updateFaceSignal(minArea, maxArea, avgArea));
-// }
+ 	//emit(updateMeshSignal());
+ 	//emit(updateEdgeSignal(minLen, maxLen, avgLen));
+ 	//emit(updateFaceSignal(minArea, maxArea, avgArea));
+ }
 
-// void MeshViewerWidget::updateMeshNormals()
-// {
-// 	mesh.update_face_normals();
-// 	mesh.update_vertex_normals();
-// }
+ void NMeshViewerWidget::updateMeshNormals()
+ {
+ 	mesh.update_face_normals();
+ 	mesh.update_vertex_normals();
+ }
 
-bool MeshViewerWidget::openMesh(const char* filename)
+
+
+bool NMeshViewerWidget::openMesh(const char* filename)
 {
 	clearAllMesh();
 	bool read_OK = Mesh_doubleIO::load_mesh( mesh, filename, true );
@@ -175,20 +177,26 @@ bool MeshViewerWidget::openMesh(const char* filename)
 		mesh_vector.push_back(mesh);
 		mesh_vector_index = 0;
 
-		QFileInfo f_info(filename);
-		str_pathname = f_info.path();
-		str_filename = f_info.fileName();
-		str_filepath = f_info.absoluteFilePath();
+		//QFileInfo f_info(filename);
+		// FIXME: using ready-made object
 
-		system("CLS");
-		emit(setPipelinePhase(0));
+		//str_pathname = f_info.path();
+		//str_filename = f_info.fileName();
+		//str_filepath = f_info.absoluteFilePath();
+
+		str_pathname = "resources";
+		str_filename = "test.obj";
+		str_filepath = "C:\\Users\\kabukunz\\Developer\\Library\\AngleAtlas\\AtlasGeneration\\AAAtlas\\Resources";
+
+		/*system("CLS");*/
+		/*emit(setPipelinePhase(0));*/
 
 		return true;
 	}
 	return false;
 }
 
-void MeshViewerWidget::initMesh()
+void NMeshViewerWidget::initMesh()
 {
 	mesh.request_vertex_status();
 	mesh.request_edge_status();
@@ -198,7 +206,7 @@ void MeshViewerWidget::initMesh()
 	mesh.request_vertex_normals();
 
 	init_properties();
-	printBasicMeshInfo();
+	//printBasicMeshInfo();
 	updateMesh();
 }
 
@@ -308,10 +316,10 @@ void MeshViewerWidget::initMesh()
 // }
 
 
-bool MeshViewerWidget::saveMesh(const char* filename)
-{
-	return Mesh_doubleIO::save_mesh(mesh, filename, true);
-}
+//bool NMeshViewerWidget::saveMesh(const char* filename)
+//{
+//	return Mesh_doubleIO::save_mesh(mesh, filename, true);
+//}
 // bool MeshViewerWidget::saveScreen(const char* filePath)
 // {
 // 	int w = width();
@@ -385,15 +393,15 @@ bool MeshViewerWidget::saveMesh(const char* filename)
 // 	}
 // }
 
-// void MeshViewerWidget::init_properties()
-// {
-// 	if (!mesh.get_property_handle(e_oncut, "e_oncut")) mesh.add_property(e_oncut, "e_oncut");
+ void NMeshViewerWidget::init_properties()
+ {
+ 	if (!mesh.get_property_handle(e_oncut, "e_oncut")) mesh.add_property(e_oncut, "e_oncut");
 	
-// 	for (auto e_h : mesh.edges())
-// 	{
-// 		mesh.property(e_oncut, e_h) = mesh.is_boundary(e_h);
-// 	}
-// } 
+ 	for (auto e_h : mesh.edges())
+ 	{
+ 		mesh.property(e_oncut, e_h) = mesh.is_boundary(e_h);
+ 	}
+ } 
 
 // void MeshViewerWidget::updateIndices()
 // {

@@ -12,10 +12,14 @@
 
 #include "Eigen/Eigen" // HERE
 
-#include "InteractiveViewerWidget.h"
+#include "NInteractiveViewerWidget.h"
 #include "Scaffold/StateManager.h" // HERE
 
-NInteractiveViewerWidget::NInteractiveViewerWidget()
+//InteractiveViewerWidget::InteractiveViewerWidget(QWidget* parent /* = 0 */)
+//	:MeshViewerWidget(parent)
+
+
+NInteractiveViewerWidget::NInteractiveViewerWidget() : NMeshViewerWidget ()
 {
 	draw_new_mesh = false;
 	// clearSelectedData();
@@ -323,31 +327,31 @@ void NInteractiveViewerWidget::initMesh()
 // 	}
 // }
 
-// void InteractiveViewerWidget::load_parameterization(bool silence /*= false*/)
-// {
-// 	if (para_cutting == nullptr)
-// 	{
-// 		para_cutting = std::make_unique<ParaQuadCutting>(mesh, str_pathname.toLocal8Bit(), str_filepath.toLocal8Bit());
-// 		M_PE = para_cutting->calc_distortion(silence);
+ void NInteractiveViewerWidget::load_parameterization(bool silence /*= false*/)
+ {
+ 	if (para_cutting == nullptr)
+ 	{
+ 		para_cutting = std::make_unique<ParaQuadCutting>(mesh, str_pathname.c_str(), str_filepath.c_str());
+ 		M_PE = para_cutting->calc_distortion(silence);
 
-// 		selectedFace.clear();
-// 		std::set<int> selected_v;
-// 		for (int f : para_cutting->get_flipped_faces())
-// 		{
-// 			selectedFace.push_back(f);
+ 		selectedFace.clear();
+ 		std::set<int> selected_v;
+ 		for (int f : para_cutting->get_flipped_faces())
+ 		{
+ 			selectedFace.push_back(f);
 
-// 			for (auto fv_h : mesh.fv_range(mesh.face_handle(f))) selected_v.insert(fv_h.idx());
-// 		}
+ 			for (auto fv_h : mesh.fv_range(mesh.face_handle(f))) selected_v.insert(fv_h.idx());
+ 		}
 
-// 		selectedVertex = std::vector<int>(selected_v.begin(), selected_v.end());
-// 	}
-// 	else
-// 	{
-// 		para_cutting->toggle_viewer_window();
-// 	}
+ 		selectedVertex = std::vector<int>(selected_v.begin(), selected_v.end());
+ 	}
+ 	else
+ 	{
+ 		para_cutting->toggle_viewer_window();
+ 	}
 
 // 	updateGL();
-// }
+ }
 
 // void InteractiveViewerWidget::save_parameterization()
 // {
@@ -372,22 +376,22 @@ void NInteractiveViewerWidget::initMesh()
 // 	updateGL();
 // }
 
-// void InteractiveViewerWidget::mirror_neg_charts()
-// {
-// 	if (para_cutting == nullptr) return;
+ void NInteractiveViewerWidget::mirror_neg_charts()
+ {
+ 	if (para_cutting == nullptr) return;
 
-// 	para_cutting->flip_neg_charts();
-// 	para_cutting->get_textured_mesh(mesh);
-// 	init_properties();
+ 	para_cutting->flip_neg_charts();
+ 	para_cutting->get_textured_mesh(mesh);
+ 	init_properties();
 
-// 	para_cutting.reset(nullptr);
-// 	poly_info.reset(nullptr);
-// 	initMesh();
+ 	para_cutting.reset(nullptr);
+ 	poly_info.reset(nullptr);
+ 	initMesh();
 
-// 	load_parameterization(true);
+ 	load_parameterization(true);
 	
-// 	updateGL();
-// }
+ 	/*updateGL();*/
+ }
 
 // void InteractiveViewerWidget::select_long_edges()
 // {
@@ -415,37 +419,37 @@ void NInteractiveViewerWidget::initMesh()
 // 	updateGL();
 // }
 
-// void InteractiveViewerWidget::select_cut_bridges()
-// {
-// 	if (para_cutting == nullptr) return;
+ void NInteractiveViewerWidget::select_cut_bridges()
+ {
+ 	if (para_cutting == nullptr) return;
 
-// 	selectedEdge.clear();
-// 	std::vector<bool> v_oncut(mesh.n_vertices(), false);
+ 	selectedEdge.clear();
+ 	std::vector<bool> v_oncut(mesh.n_vertices(), false);
 
-// 	for (auto e_h : mesh.edges())
-// 	{
-// 		if (mesh.property(e_oncut, e_h))
-// 		{
-// 			v_oncut[mesh.to_vertex_handle(mesh.halfedge_handle(e_h, 0)).idx()] = true;
-// 			v_oncut[mesh.to_vertex_handle(mesh.halfedge_handle(e_h, 1)).idx()] = true;
-// 		}
-// 	}
+ 	for (auto e_h : mesh.edges())
+ 	{
+ 		if (mesh.property(e_oncut, e_h))
+ 		{
+ 			v_oncut[mesh.to_vertex_handle(mesh.halfedge_handle(e_h, 0)).idx()] = true;
+ 			v_oncut[mesh.to_vertex_handle(mesh.halfedge_handle(e_h, 1)).idx()] = true;
+ 		}
+ 	}
 
-// 	for (auto e_h : mesh.edges())
-// 	{
-// 		if (!mesh.property(e_oncut, e_h))
-// 		{
-// 			if (v_oncut[mesh.to_vertex_handle(mesh.halfedge_handle(e_h, 0)).idx()] && v_oncut[mesh.to_vertex_handle(mesh.halfedge_handle(e_h, 1)).idx()])
-// 			{
-// 				selectedEdge.push_back(e_h.idx());
-// 			}
-// 		}
-// 	}
+ 	for (auto e_h : mesh.edges())
+ 	{
+ 		if (!mesh.property(e_oncut, e_h))
+ 		{
+ 			if (v_oncut[mesh.to_vertex_handle(mesh.halfedge_handle(e_h, 0)).idx()] && v_oncut[mesh.to_vertex_handle(mesh.halfedge_handle(e_h, 1)).idx()])
+ 			{
+ 				selectedEdge.push_back(e_h.idx());
+ 			}
+ 		}
+ 	}
 
-// //	std::cout << "Select " << selectedEdge.size() << " Edges." << std::endl;
+ //	std::cout << "Select " << selectedEdge.size() << " Edges." << std::endl;
 
-// 	updateGL();
-// }
+ 	//updateGL();
+ }
 
 // void InteractiveViewerWidget::cut_along_seleted()
 // {
@@ -506,25 +510,25 @@ void NInteractiveViewerWidget::initMesh()
 // 	updateGL();
 // }
 
-// void InteractiveViewerWidget::spilt_seleted_edges()
-// {
-// 	if (para_cutting == nullptr) return;
+ void NInteractiveViewerWidget::spilt_seleted_edges()
+ {
+ 	if (para_cutting == nullptr) return;
 
-// 	if (selectedEdge.empty()) return;
+ 	if (selectedEdge.empty()) return;
 
-// 	para_cutting->split_edges(selectedEdge);
-// 	para_cutting->get_textured_mesh(mesh);
-// 	selectedEdge.clear();
-// 	init_properties();
+ 	para_cutting->split_edges(selectedEdge);
+ 	para_cutting->get_textured_mesh(mesh);
+ 	selectedEdge.clear();
+ 	init_properties();
 
-// 	para_cutting.reset(nullptr);
-// 	poly_info.reset(nullptr);
-// 	initMesh();
+ 	para_cutting.reset(nullptr);
+ 	poly_info.reset(nullptr);
+ 	initMesh();
 
-// 	load_parameterization(true);
+ 	load_parameterization(true);
 
-// 	updateGL();
-// }
+ 	//updateGL();
+ }
 
 void NInteractiveViewerWidget::polysquare()
 {
@@ -532,10 +536,15 @@ void NInteractiveViewerWidget::polysquare()
 
 	double goal_length = (para_cutting->get_BB_Max() - para_cutting->get_BB_Min()).norm() / 3000.0;
 //	double goal_length = mesh_avg_length * 0.03;
+	
 	std::cout << "--------------------------------------------------\nGoal " << goal_length << std::endl;
 	current_phase = 0;
-	poly_info = std::make_unique<PolySquareDeformation>(mesh, para_cutting->get_origin_para(), para_cutting->viewer->boundary_vk);
-	poly_info->set_path(str_pathname.toLocal8Bit());
+
+	poly_info = std::make_unique<PolySquareDeformation>(mesh, para_cutting->get_origin_para(), 
+		para_cutting->viewer->boundary_vk);
+	
+	poly_info->set_path(str_pathname.c_str());
+	
 	if (!poly_info->calc(kernel_width, goal_length, energy_exp_factor, my_file_name))
 	{
 		poly_info.reset(nullptr);
@@ -544,18 +553,18 @@ void NInteractiveViewerWidget::polysquare()
 
 	int n_phase = poly_info->get_n_phase();
 
-	para_viewer_titles.clear();
-	para_viewer_titles.reserve(n_phase);
-	para_viewer_titles.emplace_back("Initialization");
-	para_viewer_titles.emplace_back("Rotation");
-	for (int i = 0; i < (n_phase - 5) / 2; i++)
-	{
-		para_viewer_titles.emplace_back("Align Deformation " + QString::number(i + 1));
-		para_viewer_titles.emplace_back("Inner Deformation " + QString::number(i + 1));
-	}
-	para_viewer_titles.emplace_back("Flattening");
-	para_viewer_titles.emplace_back("Untangle");
-	para_viewer_titles.emplace_back("Final");
+	//para_viewer_titles.clear();
+	//para_viewer_titles.reserve(n_phase);
+	//para_viewer_titles.emplace_back("Initialization");
+	//para_viewer_titles.emplace_back("Rotation");
+	//for (int i = 0; i < (n_phase - 5) / 2; i++)
+	//{
+	//	para_viewer_titles.emplace_back("Align Deformation " + QString::number(i + 1));
+	//	para_viewer_titles.emplace_back("Inner Deformation " + QString::number(i + 1));
+	//}
+	//para_viewer_titles.emplace_back("Flattening");
+	//para_viewer_titles.emplace_back("Untangle");
+	//para_viewer_titles.emplace_back("Final");
 
 	change_phase(n_phase - 1);
 
@@ -567,12 +576,14 @@ void NInteractiveViewerWidget::polysquare()
 void NInteractiveViewerWidget::quad_cutting()
 {
 	if (para_cutting == nullptr) return;
-	
-	QString qt_path = QString::fromStdString(para_cutting->get_path());
-	QString qt_path_tri = qt_path + tr("/tri_comp");
-	QString qt_path_quad = qt_path + tr("/quad_comp");
 
-	QDir dir(qt_path);
+	// FIXME: load the quad cutter someway
+	
+	//QString qt_path = QString::fromStdString(para_cutting->get_path());
+	//QString qt_path_tri = qt_path + tr("/tri_comp");
+	//QString qt_path_quad = qt_path + tr("/quad_comp");
+
+	//QDir dir(qt_path);
 // 	if (!QDir(qt_path_tri).exists()) dir.mkdir(qt_path_tri);
 // 	if (!QDir(qt_path_quad).exists()) dir.mkdir(qt_path_quad);
 
@@ -595,7 +606,7 @@ void NInteractiveViewerWidget::quad_cutting()
 	std::string result_file = ".\\result2\\" + result_name;
 	saveMesh(result_file.c_str());*/
 
-	updateGL();
+	//updateGL();
 }
 
 void NInteractiveViewerWidget::distortion_reduce()
@@ -658,7 +669,7 @@ void NInteractiveViewerWidget::distortion_reduce()
 	std::cout << "--------------------------------------------------" << std::endl;
 	load_parameterization(false);
 
-	updateGL();
+	//updateGL();
 }
 
 void NInteractiveViewerWidget::pre_process()
@@ -670,9 +681,9 @@ void NInteractiveViewerWidget::pre_process()
 
 //my
 
-void NInteractiveViewerWidget::my_process()          //批量处理
+void NInteractiveViewerWidget::my_process()          
 {
-	std::vector<std::string> files;         //保存该目录下所有文件的文件名
+	std::vector<std::string> files;
 	__int64 hFile = 0;
 	struct __finddata64_t fileinfo;
 	hFile = _findfirst64(".\\input4\\*.obj", &fileinfo);
@@ -686,8 +697,8 @@ void NInteractiveViewerWidget::my_process()          //批量处理
 
 	for (int i = 0; i < files.size(); i++)
 	{
-		QString in_file_name = QString::fromStdString(files[i]);
-		openMesh(in_file_name.toLocal8Bit());
+		std::string in_file_name = files[i];
+		openMesh(in_file_name.c_str());
 		//std::cout << files[i] <<std::endl;
 
 		std::string save_path_pre = ".\\result2\\";
@@ -703,26 +714,26 @@ void NInteractiveViewerWidget::my_process()          //批量处理
 
 //
 
-// void InteractiveViewerWidget::change_phase(int phase)
-// {
-// 	if (poly_info == nullptr) return;
+ void NInteractiveViewerWidget::change_phase(int phase)
+ {
+ 	if (poly_info == nullptr) return;
 
-// 	int n_phases = para_viewer_titles.size();
-// 	int new_phase = (phase + n_phases) % n_phases;
+ 	int n_phases = para_viewer_titles.size();
+ 	int new_phase = (phase + n_phases) % n_phases;
 
-// 	para_cutting->set_viewer_title(para_viewer_titles[new_phase]);
-// 	poly_info->set_phase(new_phase);
+ 	/*para_cutting->set_viewer_title((para_viewer_titles[new_phase]).c_str());*/
+ 	poly_info->set_phase(new_phase);
 
-// 	int scale_id = n_phases - 4;
-// 	double factor = 1.0;
-// 	if (current_phase <= scale_id && new_phase > scale_id) factor = 1.0 / poly_info->get_goal_length();
-// 	if (current_phase > scale_id && new_phase <= scale_id) factor = poly_info->get_goal_length();
-// 	para_cutting->update_para(factor);
-// 	para_cutting->update_textured_mesh(mesh);
+ 	int scale_id = n_phases - 4;
+ 	double factor = 1.0;
+ 	if (current_phase <= scale_id && new_phase > scale_id) factor = 1.0 / poly_info->get_goal_length();
+ 	if (current_phase > scale_id && new_phase <= scale_id) factor = poly_info->get_goal_length();
+ 	para_cutting->update_para(factor);
+ 	para_cutting->update_textured_mesh(mesh);
 
-// 	current_phase = new_phase;
-// 	updateGL();
-// }
+ 	current_phase = new_phase;
+ 	//updateGL();
+ }
 
 // void InteractiveViewerWidget::dijkstra_path(int src, int dst)
 // {

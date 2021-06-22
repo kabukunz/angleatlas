@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 	//system(tmp.data());
 	
     // QApplication a(argc, argv);
-	NAAAtlas *na = new NAAATlas();
+	NAAAtlas *na = new NAAAtlas();
 	// w.showMaximized();
 
 	// w.show();

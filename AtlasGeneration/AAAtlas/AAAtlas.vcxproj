@@ -149,26 +149,22 @@
     <ClCompile Include="include\ANN\perf.cpp" />
     <ClCompile Include="include\Mosek\ConvexQuadOptimization.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MeshViewer\Auxiliary_Function_Mesh.cpp" />
-    <ClCompile Include="MeshViewer\InteractiveViewerWidget.cpp" />
-    <ClCompile Include="MeshViewer\MainViewerWidget.cpp" />
     <ClCompile Include="MeshViewer\MeshDefinition.cpp" />
-    <ClCompile Include="MeshViewer\MeshParamDialog.cpp" />
-    <ClCompile Include="MeshViewer\MeshViewerWidget.cpp" />
     <ClCompile Include="MeshViewer\Mesh_doubleIO.cpp" />
-    <ClCompile Include="MeshViewer\QGLViewerWidget.cpp" />
+    <ClCompile Include="MeshViewer\NInteractiveViewerWidget.cpp" />
+    <ClCompile Include="MeshViewer\NMainViewerWidget.cpp" />
+    <ClCompile Include="MeshViewer\NMeshViewerWidget.cpp" />
     <ClCompile Include="MyAnderson.cpp" />
     <ClCompile Include="MyParafun.cpp" />
     <ClCompile Include="MyParaQuadCutting.cpp" />
+    <ClCompile Include="NAAAtlas.cpp" />
     <ClCompile Include="Optimization\HLBFGS\HLBFGS.cpp" />
     <ClCompile Include="Optimization\HLBFGS\HLBFGS_BLAS.cpp" />
     <ClCompile Include="Optimization\HLBFGS\ICFS.cpp" />
     <ClCompile Include="Optimization\HLBFGS\LineSearch.cpp" />
     <ClCompile Include="Optimization\HLBFGS\Lite_Sparse_Matrix.cpp" />
     <ClCompile Include="Optimization\Numeric\FastMath.cpp" />
-    <ClCompile Include="ParaQuadChartDecomposition.cpp" />
     <ClCompile Include="ParaQuadCutting.cpp" />
-    <ClCompile Include="AAAtlas.cpp" />
     <ClCompile Include="PolySquareDeformation.cpp" />
     <ClCompile Include="Scaffold\Parafun.cpp" />
     <ClCompile Include="Scaffold\PardisoSolver.cpp" />
@@ -176,24 +172,12 @@
     <ClCompile Include="Scaffold\ScafData.cpp" />
     <ClCompile Include="Scaffold\StateManager.cpp" />
     <ClCompile Include="Scaffold\TriangleInterface.cpp" />
-    <ClCompile Include="Viewer2D.cpp" />
-    <ClCompile Include="Viewer2D_Parameterization.cpp" />
-    <ClCompile Include="Viewer2D_Segments.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="AAAtlas.h" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="AAAtlas.qrc" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MeshViewer\Aux_Transform_Mesh_Dialog.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="MeshViewer\InteractiveViewerWidget.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="MeshViewer\MainViewerWidget.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChartDeformation.h" />
@@ -219,10 +203,14 @@
     <ClInclude Include="include\Mosek\mosek.h" />
     <ClInclude Include="MeshViewer\MeshDefinition.h" />
     <ClInclude Include="MeshViewer\Mesh_doubleIO.h" />
+    <ClInclude Include="MeshViewer\NInteractiveViewerWidget.h" />
+    <ClInclude Include="MeshViewer\NMainViewerWidget.h" />
+    <ClInclude Include="MeshViewer\NMeshViewerWidget.h" />
     <ClInclude Include="MeshViewer\OpenglHeaders.h" />
     <ClInclude Include="MyAnderson.h" />
     <ClInclude Include="MyParafun.h" />
     <ClInclude Include="MyParaQuadCutting.h" />
+    <ClInclude Include="NAAAtlas.h" />
     <ClInclude Include="OMPHelper.h" />
     <ClInclude Include="Optimization\HLBFGS\HLBFGS.h" />
     <ClInclude Include="Optimization\HLBFGS\HLBFGS_BLAS.h" />
@@ -233,7 +221,6 @@
     <ClInclude Include="Optimization\HLBFGS\Lite_Sparse_Matrix.h" />
     <ClInclude Include="Optimization\Numeric\FastMath.h" />
     <ClInclude Include="Optimization\Numeric\fmath.hpp" />
-    <ClInclude Include="ParaQuadChartDecomposition.h" />
     <ClInclude Include="ParaQuadCutting.h" />
     <ClInclude Include="PolySquareDeformation.h" />
     <ClInclude Include="Scaffold\Parafun.h" />
@@ -242,12 +229,6 @@
     <ClInclude Include="Scaffold\ScafData.h" />
     <ClInclude Include="Scaffold\StateManager.h" />
     <ClInclude Include="Scaffold\TriangleInterface.h" />
-    <QtMoc Include="Viewer2D_Parameterization.h" />
-    <QtMoc Include="Viewer2D.h" />
-    <QtMoc Include="Viewer2D_Segments.h" />
-    <QtMoc Include="MeshViewer\QGLViewerWidget.h" />
-    <QtMoc Include="MeshViewer\MeshViewerWidget.h" />
-    <QtMoc Include="MeshViewer\MeshParamDialog.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

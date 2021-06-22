@@ -1,24 +1,24 @@
 #ifndef MESHPROCESSING_MESHPARAMDIALOG_H
 #define MESHPROCESSING_MESHPARAMDIALOG_H
 
-#include <QDialog>
-#include <QtGui>
-#include <QtWidgets>
+//#include <QDialog>
+//#include <QtGui>
+//#include <QtWidgets>
 #include <iostream>
 #include <string>
 
-class MeshParamDialog : public QDialog
+class MeshParamDialog
 {
-	Q_OBJECT
+	/*Q_OBJECT*/
 public:
-	MeshParamDialog(QWidget* parent = 0);
+	MeshParamDialog();
 	~MeshParamDialog();
 
-	QSize sizeHint()
-	{
-		QRect rect = QApplication::desktop()->screenGeometry();
-		return QSize(int(rect.width()*0.15), rect.height());
-	}
+	//QSize sizeHint()
+	//{
+	//	QRect rect = QApplication::desktop()->screenGeometry();
+	//	return QSize(int(rect.width()*0.15), rect.height());
+	//}
 
 	void createTabs();
 	void initTabs();

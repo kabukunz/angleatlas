@@ -1,4 +1,4 @@
-#include "MeshParamDialog.h"
+//#include "NMeshParamDialog.h"
 #include <QApplication>
 #include <QDesktopWidget>
 

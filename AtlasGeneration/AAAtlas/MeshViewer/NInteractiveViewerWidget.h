@@ -12,7 +12,7 @@
 #include <string>
 #include <fstream>
 
-class NInteractiveViewerWidget
+class NInteractiveViewerWidget : public NMeshViewerWidget
 {
 	// Q_OBJECT
 public:
@@ -99,17 +99,17 @@ public:
 // 	}
 
 // public:
-// 	enum { TRANS, POINTPICK, VERTEXPICK, EDGEPICK, FACEPICK, EDGECOLLAPSE, EDGEFLIP, EDGESPLIT , MOVE, T2_MODE, N_MODE };
+ 	enum { TRANS, POINTPICK, VERTEXPICK, EDGEPICK, FACEPICK, EDGECOLLAPSE, EDGEFLIP, EDGESPLIT , MOVE, T2_MODE, N_MODE };
 // 	void setMouseMode(int mm);
-// 	int mouseMode() const { return mouse_mode_; }
+ 	/*int mouseMode() const { return mouse_mode_; }*/
 
 // protected:
 // 	virtual void mousePressEvent(QMouseEvent *_event);
 // 	virtual void mouseReleaseEvent(QMouseEvent *_event);
 // 	virtual void mouseMoveEvent(QMouseEvent *_event);
 // 	virtual void wheelEvent(QWheelEvent* _event);
-// 	int mouse_mode_;
-// 	int t2_mode_;
+ 	int mouse_mode_;
+ 	int t2_mode_;
 
 // protected:
 // 	void pick_vertex(int x,int y);
@@ -118,12 +118,12 @@ public:
 // 	void pick_point(int x,int y);
 // 	void move_point_based_lastVertex(int x,int y);
 
-// 	int find_vertex_using_selected_point();
-// 	int find_face_using_selected_point();
-// 	int find_edge_using_selected_point();
+ 	/*int find_vertex_using_selected_point();
+ 	int find_face_using_selected_point();
+ 	int find_edge_using_selected_point();*/
 
 // 	void buildIndex();
-// 	ANNkd_tree* kdTree;
+ 	ANNkd_tree* kdTree;
 
 // 	void draw_interactive_portion(int drawmode);
 // 	void draw_interactive_portion_mesh2();
@@ -132,22 +132,22 @@ public:
 // 	void draw_selected_face();
 // 	void draw_selected_edge();
 // 	virtual void draw_scene(int drawmode);
-// 	bool draw_new_mesh;
+ 	bool draw_new_mesh;
 
-// protected:
-// 	double selectedPoint[3];
-// 	std::vector<int> selectedVertex;
-// 	int lastestVertex;
-// 	std::vector<int> selectedFace;
-// 	int lastestFace;
-// 	std::vector<int> selectedEdge;
-// 	int lastestEdge;
+ protected:
+ 	double selectedPoint[3];
+ 	std::vector<int> selectedVertex;
+ 	int lastestVertex;
+ 	std::vector<int> selectedFace;
+ 	int lastestFace;
+ 	std::vector<int> selectedEdge;
+ 	int lastestEdge;
 
 // protected:
 // 	void dragEnterEvent(QDragEnterEvent *event);
 // 	void dropEvent(QDropEvent *event);
 
-// public:
+ public:
 // private:
 
 // #pragma region Auxiliary_function
@@ -165,14 +165,15 @@ public:
 // 	void delete_vertex_valence_three();
 // 	void split_vertex_valence_eight();
 // #pragma endregion
-// 	void load_parameterization(bool silence = false);
+
+ 	void load_parameterization(bool silence = false);
 // 	void save_parameterization();
 // 	void reload_mesh();
-// 	void mirror_neg_charts();
+ 	void mirror_neg_charts();
 // 	void select_long_edges();
-// 	void select_cut_bridges();
+ 	void select_cut_bridges();
 // 	void cut_along_seleted();
-// 	void spilt_seleted_edges();
+ 	void spilt_seleted_edges();
 	void polysquare();
 	void quad_cutting();
 	void distortion_reduce();
@@ -183,12 +184,13 @@ public:
 
 public:
 	// std::vector<QString> para_viewer_titles;
+	std::vector<std::string> para_viewer_titles;
 	std::unique_ptr<ParaQuadCutting> para_cutting = nullptr;
 	std::unique_ptr<PolySquareDeformation> poly_info = nullptr;
 private:
 	int current_phase = 0;
 	void change_phase(int delta);
-	void dijkstra_path(int src, int dst);
+	//void dijkstra_path(int src, int dst);
 public:
 	void next_phase() { change_phase(current_phase + 1); };
 	void prev_phase() { change_phase(current_phase - 1); };

@@ -11,11 +11,6 @@
       <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
-    <Filter Include="Generated Files">
-      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
-      <Extensions>moc;h;cpp</Extensions>
-      <SourceControlFiles>False</SourceControlFiles>
-    </Filter>
     <Filter Include="MeshViewer">
       <UniqueIdentifier>{adca7818-b981-4e97-9a99-867a780c5808}</UniqueIdentifier>
     </Filter>
@@ -55,19 +50,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MeshViewer\Auxiliary_Function_Mesh.cpp">
-      <Filter>MeshViewer</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshViewer\InteractiveViewerWidget.cpp">
-      <Filter>MeshViewer</Filter>
-    </ClCompile>
     <ClCompile Include="MeshViewer\MeshDefinition.cpp">
-      <Filter>MeshViewer</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshViewer\MeshViewerWidget.cpp">
-      <Filter>MeshViewer</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshViewer\QGLViewerWidget.cpp">
       <Filter>MeshViewer</Filter>
     </ClCompile>
     <ClCompile Include="Common\CommonDefinitions.cpp">
@@ -124,16 +107,7 @@
     <ClCompile Include="include\ANN\perf.cpp">
       <Filter>ANN</Filter>
     </ClCompile>
-    <ClCompile Include="AAAtlas.cpp">
-      <Filter>GUI</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshViewer\MeshParamDialog.cpp">
-      <Filter>GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshViewer\MainViewerWidget.cpp">
       <Filter>GUI</Filter>
     </ClCompile>
     <ClCompile Include="MeshViewer\Mesh_doubleIO.cpp">
@@ -141,18 +115,6 @@
     </ClCompile>
     <ClCompile Include="ParaQuadCutting.cpp">
       <Filter>PolySquare</Filter>
-    </ClCompile>
-    <ClCompile Include="ParaQuadChartDecomposition.cpp">
-      <Filter>PolySquare</Filter>
-    </ClCompile>
-    <ClCompile Include="Viewer2D.cpp">
-      <Filter>Viewer2D</Filter>
-    </ClCompile>
-    <ClCompile Include="Viewer2D_Parameterization.cpp">
-      <Filter>Viewer2D</Filter>
-    </ClCompile>
-    <ClCompile Include="Viewer2D_Segments.cpp">
-      <Filter>Viewer2D</Filter>
     </ClCompile>
     <ClCompile Include="PolySquareDeformation.cpp">
       <Filter>PolySquare</Filter>
@@ -214,37 +176,14 @@
     <ClCompile Include="MyParafun.cpp">
       <Filter>PolySquare</Filter>
     </ClCompile>
+    <ClCompile Include="NAAAtlas.cpp" />
+    <ClCompile Include="MeshViewer\NInteractiveViewerWidget.cpp" />
+    <ClCompile Include="MeshViewer\NMainViewerWidget.cpp" />
+    <ClCompile Include="MeshViewer\NMeshViewerWidget.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="MeshViewer\InteractiveViewerWidget.h">
-      <Filter>MeshViewer</Filter>
-    </QtMoc>
-    <QtMoc Include="MeshViewer\MeshViewerWidget.h">
-      <Filter>MeshViewer</Filter>
-    </QtMoc>
-    <QtMoc Include="MeshViewer\QGLViewerWidget.h">
-      <Filter>MeshViewer</Filter>
-    </QtMoc>
-    <QtMoc Include="AAAtlas.h">
-      <Filter>GUI</Filter>
-    </QtMoc>
     <QtMoc Include="MeshViewer\Aux_Transform_Mesh_Dialog.h">
       <Filter>GUI</Filter>
-    </QtMoc>
-    <QtMoc Include="MeshViewer\MeshParamDialog.h">
-      <Filter>GUI</Filter>
-    </QtMoc>
-    <QtMoc Include="MeshViewer\MainViewerWidget.h">
-      <Filter>GUI</Filter>
-    </QtMoc>
-    <QtMoc Include="Viewer2D.h">
-      <Filter>Viewer2D</Filter>
-    </QtMoc>
-    <QtMoc Include="Viewer2D_Segments.h">
-      <Filter>Viewer2D</Filter>
-    </QtMoc>
-    <QtMoc Include="Viewer2D_Parameterization.h">
-      <Filter>Viewer2D</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -311,9 +250,6 @@
       <Filter>MeshViewer</Filter>
     </ClInclude>
     <ClInclude Include="ParaQuadCutting.h">
-      <Filter>PolySquare</Filter>
-    </ClInclude>
-    <ClInclude Include="ParaQuadChartDecomposition.h">
       <Filter>PolySquare</Filter>
     </ClInclude>
     <ClInclude Include="PolySquareDeformation.h">
@@ -391,5 +327,9 @@
     <ClInclude Include="OMPHelper.h">
       <Filter>PolySquare</Filter>
     </ClInclude>
+    <ClInclude Include="NAAAtlas.h" />
+    <ClInclude Include="MeshViewer\NInteractiveViewerWidget.h" />
+    <ClInclude Include="MeshViewer\NMainViewerWidget.h" />
+    <ClInclude Include="MeshViewer\NMeshViewerWidget.h" />
   </ItemGroup>
 </Project>

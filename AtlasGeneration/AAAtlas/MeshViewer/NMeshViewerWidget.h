@@ -18,17 +18,19 @@ public:
 public:
 	bool openMesh(const char* filename);
 	virtual void initMesh();
-	bool saveMesh(const char* filename);
+	//bool saveMesh(const char* filename);
 	// bool saveScreen(const char* filePath);
 
 	Mesh* mesh_ptr(){return &mesh;};
 	Mesh& mesh_ref() { return mesh; };
 	const Mesh& mesh_cref() const { return mesh; };
-	// void updateMesh()
-	// {
-	// 	updateMeshNormals();
-	// 	updateMeshCenter();
-	// };
+	 
+	void updateMesh()
+	 {
+	 	updateMeshNormals();
+	 	updateMeshCenter();
+	 };
+	
 	virtual void clearAllMesh()
 	{
 		mesh_vector.clear(); mesh_vector_index = -1;
@@ -60,9 +62,9 @@ public:
 // 	void setPipelinePhase(int);
 
 // protected:
-// 	void init();
-// 	void updateMeshCenter(); // used by update_mesh().
-// 	void updateMeshNormals(); // used by update_mesh().
+ 	void init();
+ 	void updateMeshCenter(); // used by update_mesh().
+ 	void updateMeshNormals(); // used by update_mesh().
 // 	void printBasicMeshInfo();
 
 // protected:
@@ -86,6 +88,7 @@ protected:
 	int mesh_vector_index;
 
 	// QString str_pathname, str_filepath, str_filename;
+	std::string str_pathname, str_filepath, str_filename;
 
 	std::vector<int> new_boundary_vertices;
 
@@ -106,7 +109,7 @@ public:
 	int meshMode() const { return mesh_mode_; }
 	void checkMeshMode();
 
-	void square_widget();
+	//void square_widget();
 private:
 	int mesh_mode_;
 	//std::vector<unsigned int> Indices;

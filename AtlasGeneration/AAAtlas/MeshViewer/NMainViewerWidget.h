@@ -7,7 +7,7 @@
 // #include <QFileDialog>
 //main widget
 #include "NInteractiveViewerWidget.h" // HERE
-#include "NMeshParamDialog.h" // HERE
+//#include "NMeshParamDialog.h" // HERE
 
 class NMainViewerWidget
 {
