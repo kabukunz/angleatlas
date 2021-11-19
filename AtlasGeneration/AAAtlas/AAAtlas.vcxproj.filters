@@ -180,6 +180,9 @@
     <ClCompile Include="MeshViewer\NInteractiveViewerWidget.cpp" />
     <ClCompile Include="MeshViewer\NMainViewerWidget.cpp" />
     <ClCompile Include="MeshViewer\NMeshViewerWidget.cpp" />
+    <ClCompile Include="PolySquareDeformation_Deformation.cpp" />
+    <ClCompile Include="PolySquareDeformation_Rotation.cpp" />
+    <ClCompile Include="ParaQuadChartDecomposition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MeshViewer\Aux_Transform_Mesh_Dialog.h">
@@ -331,5 +334,6 @@
     <ClInclude Include="MeshViewer\NInteractiveViewerWidget.h" />
     <ClInclude Include="MeshViewer\NMainViewerWidget.h" />
     <ClInclude Include="MeshViewer\NMeshViewerWidget.h" />
+    <ClInclude Include="ParaQuadChartDecomposition.h" />
   </ItemGroup>
 </Project>

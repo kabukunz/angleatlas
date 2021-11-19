@@ -164,8 +164,11 @@
     <ClCompile Include="Optimization\HLBFGS\LineSearch.cpp" />
     <ClCompile Include="Optimization\HLBFGS\Lite_Sparse_Matrix.cpp" />
     <ClCompile Include="Optimization\Numeric\FastMath.cpp" />
+    <ClCompile Include="ParaQuadChartDecomposition.cpp" />
     <ClCompile Include="ParaQuadCutting.cpp" />
     <ClCompile Include="PolySquareDeformation.cpp" />
+    <ClCompile Include="PolySquareDeformation_Deformation.cpp" />
+    <ClCompile Include="PolySquareDeformation_Rotation.cpp" />
     <ClCompile Include="Scaffold\Parafun.cpp" />
     <ClCompile Include="Scaffold\PardisoSolver.cpp" />
     <ClCompile Include="Scaffold\ScafCommon.cpp" />
@@ -221,6 +224,7 @@
     <ClInclude Include="Optimization\HLBFGS\Lite_Sparse_Matrix.h" />
     <ClInclude Include="Optimization\Numeric\FastMath.h" />
     <ClInclude Include="Optimization\Numeric\fmath.hpp" />
+    <ClInclude Include="ParaQuadChartDecomposition.h" />
     <ClInclude Include="ParaQuadCutting.h" />
     <ClInclude Include="PolySquareDeformation.h" />
     <ClInclude Include="Scaffold\Parafun.h" />
